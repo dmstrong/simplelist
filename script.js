@@ -1,5 +1,3 @@
-// Reference:  https://www.taniarascia.com/how-to-use-local-storage-with-javascript/
-
 const form = document.querySelector('form')
 const ul = document.querySelector('ul')
 const button = document.querySelector('button')
@@ -25,15 +23,15 @@ const liMaker = (text) => {
 form.addEventListener('submit', function (e) {
     e.preventDefault() 
 
-    liMaker(input.value) // Create new list item using user input
     itemsArray.push(input.value)
     localStorage.setItem('items', JSON.stringify(itemsArray))
-
+    
+    liMaker(input.value) // Create new list item using user input
     input.value = '' // Clear input field
 
 })
 
-// Data
+// Display data
 data.forEach(item => {
     liMaker(item)
 })
@@ -44,4 +42,5 @@ button.addEventListener('click', function () {
     while (ul.firstChild) {
         ul.removeChild(ul.firstChild)
     }
+    itemsArray = []
 })
