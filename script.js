@@ -25,10 +25,10 @@ const liMaker = (text) => {
 form.addEventListener('submit', function (e) {
     e.preventDefault() 
 
+    liMaker(input.value) // Create new list item using user input
     itemsArray.push(input.value)
     localStorage.setItem('items', JSON.stringify(itemsArray))
 
-    liMaker(input.value) // Create new list item using user input
     input.value = '' // Clear input field
 
 })
